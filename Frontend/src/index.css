@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+@reference;
+
+/* Configure dark mode to use class-based strategy instead of prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --color-background: 243 244 246; /* gray-100 */
+    --color-background-alt: 229 231 235; /* gray-200 */
+    --color-foreground: 31 41 55; /* gray-800 */
+    --color-foreground-secondary: 55 65 81; /* gray-700 */
+    --color-foreground-muted: 107 114 128; /* gray-500 */
+    --color-border: 209 213 219; /* gray-300 */
+  }
+
+
+  .dark {
+    /* Dark Mode Colors - Enhanced contrast with slate tones */
+    --color-background: 15 23 42; /* slate-900 */
+    --color-background-alt: 30 41 59; /* slate-800 */
+    --color-foreground: 248 250 252; /* slate-50 */
+    --color-foreground-secondary: 226 232 240; /* slate-200 */
+    --color-foreground-muted: 148 163 184; /* slate-400 */
+    --color-border: 51 65 85; /* slate-700 */
+  }
+
+  /*
+     GLOBAL BODY STYLES
+  */
+  body {
+    @apply bg-gray-100 dark:bg-slate-900;
+    @apply text-gray-800 dark:text-slate-50;
+    @apply font-sans text-base leading-relaxed;
+    @apply antialiased;
+    /* Smooth font rendering across browsers */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* ============================================
+     HEADINGS
+     ============================================
+     Consistent styling for all heading levels.
+  */
+  h1 {
+    @apply text-3xl font-bold;
+    @apply text-gray-800 dark:text-slate-50;
+    @apply leading-tight tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+    @apply text-gray-800 dark:text-slate-50;
+    @apply leading-snug tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+    @apply text-gray-800 dark:text-slate-50;
+    @apply leading-snug;
+  }
+
+  h4 {
+    @apply text-lg font-medium;
+    @apply text-gray-800 dark:text-slate-50;
+    @apply leading-normal;
+  }
+
+  h5 {
+    @apply text-base font-medium;
+    @apply text-gray-700 dark:text-slate-200;
+    @apply leading-normal;
+  }
+
+  h6 {
+    @apply text-sm font-medium;
+    @apply text-gray-700 dark:text-slate-200;
+    @apply leading-normal;
+  }
+  /* ============================================
+     PARAGRAPHS AND INLINE ELEMENTS
+     ============================================
+  */
+  p {
+    @apply text-gray-700 dark:text-slate-300;
+    @apply leading-relaxed;
+  }
+
+  a {
+    @apply text-blue-600 dark:text-blue-400;
+    @apply underline-offset-2;
+    @apply transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-blue-700 dark:text-blue-300;
+    @apply underline;
+  }
+
+  strong,
+  b {
+    @apply font-semibold;
+    @apply text-gray-800 dark:text-slate-50;
+  }
+
+  em,
+  i {
+    @apply italic;
+  }
+
+  small {
+    @apply text-sm;
+    @apply text-gray-500 dark:text-slate-400;
+  }
+
+  code {
+    @apply text-sm font-mono;
+    @apply bg-gray-200 dark:bg-slate-800;
+    @apply text-gray-800 dark:text-slate-200;
+    @apply px-1.5 py-0.5 rounded;
+  }
+
+  pre {
+    @apply bg-gray-200 dark:bg-slate-800;
+    @apply text-gray-800 dark:text-slate-200;
+    @apply p-4 rounded-lg overflow-x-auto;
+    @apply text-sm font-mono;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* ============================================
+     LISTS
+     ============================================
+  */
+  ul,
+  ol {
+    @apply text-gray-700 dark:text-slate-300;
+    @apply leading-relaxed;
+    @apply pl-6;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply mb-1;
+  }
+
+  /* ============================================
+     FORM ELEMENTS
+     ============================================
+     Base styling for inputs and form controls.
+  */
+  input,
+  textarea,
+  select {
+    @apply bg-white dark:bg-slate-800;
+    @apply text-gray-800 dark:text-slate-50;
+    @apply border border-gray-300 dark:border-slate-700;
+    @apply rounded-md;
+    @apply transition-colors duration-200;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply outline-none ring-2 ring-blue-500 dark:ring-blue-400;
+    @apply border-transparent;
+  }
+
+  button {
+    @apply transition-all duration-200;
+    @apply cursor-pointer;
+  }
+
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* ============================================
+     HORIZONTAL RULES
+     ============================================
+  */
+  hr {
+    @apply border-gray-300 dark:border-slate-700;
+    @apply my-6;
+  }
+
+  /* ============================================
+     BLOCKQUOTES
+     ============================================
+  */
+  blockquote {
+    @apply border-l-4 border-gray-300 dark:border-slate-700;
+    @apply pl-4 italic;
+    @apply text-gray-700 dark:text-slate-300;
+  }
+
+  /* ============================================
+     TABLES
+     ============================================
+  */
+  table {
+    @apply w-full border-collapse;
+  }
+
+  th {
+    @apply bg-gray-200 dark:bg-slate-800;
+    @apply text-gray-800 dark:text-slate-50;
+    @apply font-semibold text-left;
+    @apply px-4 py-2;
+    @apply border-b border-gray-300 dark:border-slate-700;
+  }
+
+  td {
+    @apply text-gray-700 dark:text-slate-300;
+    @apply px-4 py-2;
+    @apply border-b border-gray-300 dark:border-slate-700;
+  }
+
+  /* ============================================
+     SELECTION
+     ============================================
+     Custom text selection color for better UX.
+  */
+  ::selection {
+    @apply bg-blue-200 dark:bg-blue-900;
+    @apply text-gray-900 dark:text-slate-50;
+  }
+
+  /* ============================================
+     SCROLLBAR CUSTOMIZATION
+     ============================================
+     Modern, minimal scrollbar design.
+  */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+  }
+
+  .dark * {
+    scrollbar-color: rgb(71 85 105) rgb(15 23 42);
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-slate-900;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-slate-600;
+    @apply rounded-full;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500 dark:bg-slate-500;
+  }
+}
