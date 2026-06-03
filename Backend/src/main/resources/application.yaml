@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: Personalized-Study-Planner
+
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # ------------- Mail Config -------------
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+            scope:
+              - email
+              - profile
+              - https://www.googleapis.com/auth/calendar
+  ai:
+    # Enable Google GenAI chat model (google-genai is default, but set explicitly)
+    model:
+      chat: google-genai
+    retry:
+      enabled: false
+    google:
+      genai:
+        api-key: ${GEN_API_KEY}
+        chat:
+          options:
+            # Use a currently supported Gemini model
+            model: gemini-2.5-flash-lite
+            temperature: 0.7
+
+server:
+  port: 8081
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 36000000
+
+app:
+  frontend:
+    url: ${FRONTEND_URL}
+  backend:
+    base-url: ${BACKEND_URL}
+  llm:
+    monthly-quota: 50
+
+#ollama:
+#  api-key: ${UNUSED_OLLAMA_API_KEY}
+#  base-url: https://api.ollama.com
+#  completion-url: https://api.ollama.com/v1
+#  model: llama3
+
+# gemini:
+#   api-key: ${UNUSED_GEMINI_API_KEY}
+#   # Correct content-generation endpoint if you call Gemini manually (used by LlmClient):
+#   completion-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent

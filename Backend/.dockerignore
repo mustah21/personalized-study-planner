@@ -1,0 +1,31 @@
+# Excude Maven build artifacts expect the final JAR
+target/*
+!target/study_planner.jar
+
+#Exclude data directory
+data/
+
+#Exclude IDE files
+.idea/
+*.iml
+.vscode/
+
+#Exclude git
+.git/
+.gitignore
+
+# Exclude Docker files
+Dockerfile
+.dokerignore
+compose.yaml
+
+#Exclude documentation
+README.md
+
+#Exclude maven wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# Exclude test resources
+src/test/
