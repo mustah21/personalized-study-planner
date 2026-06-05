@@ -387,3 +387,7 @@ Personalized-Study-Planner/
 | Minh Hoang | Frontend Developer · Scrum Master (Sprint 1) |
 | Jari Orkolainen | Backend Developer · Tester · Scrum Master (Sprint 5) |
 | Mustafa Ahmad | Backend Developer · DevOps (Jenkins, Docker) · Scrum Master (Sprints 3, 6) |
+
+---
+_This readme has primarily been written by Claude. The code itself has entirely been written by the owner. Nonetheless the the final responsibility for the documentation and its correctness resides with the owner._
+
